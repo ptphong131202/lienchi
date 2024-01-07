@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { FormattedMessage } from 'react-intl'; // fomat language
-
+import { createCategory } from "../../../services/userService"
+import { Toast, toast } from 'react-toastify';
 
 import "./AddCat.scss"
 class AddCat extends Component
@@ -18,7 +19,7 @@ class AddCat extends Component
     {
         super( props );
         this.state = {
-            category: "",
+            name: "",
         }
     }
 
@@ -29,7 +30,26 @@ class AddCat extends Component
         this.setState( {
             ...copystate
         } )
-        console.log( "check state: ", this.state )
+    }
+
+    handleSaveCategory = async () =>
+    {
+        let res = await createCategory( {
+            name: this.state.name
+        } )
+
+        if ( res && res.errCode === 0 )
+        {
+            toast.success( "Category saved successfully!" );
+            this.setState( {
+                name: ""
+            } )
+        }
+        else
+        {
+            toast.error( "Category saved failer!" );
+
+        }
     }
 
     render ()
@@ -48,15 +68,16 @@ class AddCat extends Component
                                 <label><FormattedMessage id="menu.admin.name-category" /> : </label>
                                 <input type='text'
                                     className='form-controll'
-                                    name='category'
-                                    onChange={ ( event ) => { this.onChangeInput( event, "category" ) } }
+                                    name='name'
+                                    onChange={ ( event ) => { this.onChangeInput( event, "name" ) } }
+                                    onClick={ () => this.handleSaveCategory() }
                                 />
                             </div>
 
                             <div className='text-center'>
                                 <button type='submit'
                                     className='btn btn-primary mt-3'
-
+                                    onClick={ () => this.handleSaveCategory() }
                                 ><FormattedMessage id="menu.admin.add" /></button>
                             </div>
                         </from>
