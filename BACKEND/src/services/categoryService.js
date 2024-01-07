@@ -48,7 +48,7 @@ let getCategory = () =>
             resolve( {
                 errCode: 0,
                 message: "ok!",
-                categories
+                data: categories
             } )
 
         }

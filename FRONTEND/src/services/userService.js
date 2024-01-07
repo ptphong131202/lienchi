@@ -11,8 +11,13 @@ const createCategory = ( data ) =>
 {
     return axios.post( 'api/post-category', data ); // request len server
 }
+
+const getCategory = () =>
+{
+    return axios.get( 'api/get-category' );
+}
 export
 {
-    handleLoginApi, createCategory,
+    handleLoginApi, createCategory, getCategory
 
 };
