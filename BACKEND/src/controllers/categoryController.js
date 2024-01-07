@@ -17,13 +17,18 @@ let getCategory = async ( req, res ) =>
 // delete category
 let deleteCategory = async ( req, res ) =>
 {
-    console.log( req.body.id )
     let cat = await category.deleteCategory( req.body.id );
     return res.status( 200 ).json( cat );
 }
 
+
+let editCategory = async ( req, res ) =>
+{
+    console.log( req.body.id )
+}
 module.exports = {
     handlePostCategory: handlePostCategory,
     getCategory: getCategory,
-    deleteCategory: deleteCategory
+    deleteCategory: deleteCategory,
+    editCategory: editCategory
 }

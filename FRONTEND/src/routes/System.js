@@ -5,7 +5,7 @@ import AddCat from '../containers/System/admin/AddCat';
 import ListCat from '../containers/System/admin/ListCat';
 import HomePageAdmin from '../containers/System/admin/HomePageAdmin';
 import Header from '../containers/Header/Header';
-
+import EditCat from '../containers/System/admin/EditCat';
 class System extends Component
 {
     render ()
@@ -18,6 +18,7 @@ class System extends Component
                 <div className="system-container">
                     <div className="system-list">
                         <Switch>
+                            <Route path="/system/edit-cat" component={ EditCat } />
                             <Route path="/system/list-cat" component={ ListCat } />
                             <Route path="/system/add-cat" component={ AddCat } />
                             <Route path="/system/home-admin" component={ HomePageAdmin } />

@@ -55,6 +55,8 @@ class ListCat extends Component
         let { listCat } = this.state;
         let { language } = this.props;
 
+        let listCatreverse = listCat.reverse();
+
         return (
             <>
                 <div className='container add-cat'>
@@ -68,7 +70,7 @@ class ListCat extends Component
                                 jhfkweiw
                             </div>
                             <div className='list-category'>
-                                { listCat && listCat.map( ( item, index ) =>
+                                { listCatreverse && listCatreverse.map( ( item, index ) =>
                                 {
                                     return (
                                         <div className='list-category-item' key={ index }>
