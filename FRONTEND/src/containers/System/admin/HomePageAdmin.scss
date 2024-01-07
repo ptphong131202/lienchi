@@ -1,0 +1,14 @@
+.home-admin {
+    height: 100vh;
+    padding-top: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+
+    .home-admin-text {
+        font-size: 40px;
+        font-weight: bold;
+    }
+}
