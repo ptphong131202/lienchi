@@ -59,7 +59,43 @@ let getCategory = () =>
     } )
 }
 
+let deleteCategory = ( id ) =>
+{
+    return new Promise( async ( resolve, reject ) =>
+    {
+        try
+        {
+            let cat = await db.Category.findOne( {
+                where: { id: id },
+            } )
+
+            if ( !cat )
+            {
+                resolve( {
+                    errCode: 2,
+                    errMessage: 'Category not found!'
+                } );
+            }
+
+            await db.Category.destroy( {
+                where: { id: id },
+            } );
+
+            resolve( {
+                errCode: 0,
+                errMessage: 'Delete category succeed!'
+            } );
+        }
+        catch ( err )
+        {
+            reject( err );
+        }
+    } )
+
+}
+
 module.exports = {
     handlePostCategory: handlePostCategory,
-    getCategory: getCategory
+    getCategory: getCategory,
+    deleteCategory: deleteCategory
 }

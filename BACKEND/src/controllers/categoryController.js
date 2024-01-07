@@ -14,7 +14,16 @@ let getCategory = async ( req, res ) =>
     return res.status( 200 ).json( cat );
 }
 
+// delete category
+let deleteCategory = async ( req, res ) =>
+{
+    console.log( req.body.id )
+    let cat = await category.deleteCategory( req.body.id );
+    return res.status( 200 ).json( cat );
+}
+
 module.exports = {
     handlePostCategory: handlePostCategory,
-    getCategory: getCategory
+    getCategory: getCategory,
+    deleteCategory: deleteCategory
 }

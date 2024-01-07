@@ -16,8 +16,16 @@ const getCategory = () =>
 {
     return axios.get( 'api/get-category' );
 }
+
+const deleteCategory = ( id ) =>
+{
+    return axios.delete( `api/delete-category`,
+        {
+            data: { id: id },
+        } );
+}
 export
 {
-    handleLoginApi, createCategory, getCategory
+    handleLoginApi, createCategory, getCategory, deleteCategory,
 
 };

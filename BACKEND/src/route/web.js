@@ -12,7 +12,8 @@ let initWebRoutes = ( app ) =>
 
     // category
     router.post( '/api/post-category', category.handlePostCategory ); // add category
-    router.get( '/api/get-category', category.getCategory );
+    router.get( '/api/get-category', category.getCategory ); // get category
+    router.delete( '/api/delete-category', category.deleteCategory ); // delete
 
     return app.use( "/", router );
 }
